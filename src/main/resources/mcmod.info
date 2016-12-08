@@ -1,0 +1,16 @@
+[
+{
+  "modid": "breakabletables",
+  "name": "Breakable Tables",
+  "description": "Crafting tables with limited uses",
+  "version": "${version}",
+  "mcversion": "${mcversion}",
+  "url": "",
+  "updateUrl": "",
+  "authorList": ["Funwayguy", "Darkosto"],
+  "credits": "",
+  "logoFile": "",
+  "screenshots": [],
+  "dependencies": []
+}
+]
