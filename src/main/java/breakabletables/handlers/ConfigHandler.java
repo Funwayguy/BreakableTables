@@ -21,6 +21,7 @@ public class ConfigHandler
 		
 		config.load();
 		
+		BT_Settings.holdItems = config.getBoolean("Hold Items", Configuration.CATEGORY_GENERAL, false, "Enables tables to retain held items");
 		BT_Settings.hideUpdates = config.getBoolean("Hide Updates", Configuration.CATEGORY_GENERAL, false, "Hides the update notifications");
 		BT_Settings.damageChance = config.getFloat("Damage Chance", Configuration.CATEGORY_GENERAL, 10F, 0.01F, 100F, "% chance that a crafting table will take damage on use (max damage = 3, better tables scale relatively)");
 		

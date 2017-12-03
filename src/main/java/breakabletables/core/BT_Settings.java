@@ -7,4 +7,5 @@ public class BT_Settings
 {
 	public static boolean hideUpdates = false;
 	public static float damageChance = 1F;
+	public static boolean holdItems = false;
 }

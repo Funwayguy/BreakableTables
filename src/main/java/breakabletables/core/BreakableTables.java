@@ -1,6 +1,7 @@
 package breakabletables.core;
 
 import net.minecraft.block.Block;
+import net.minecraft.init.Blocks;
 import net.minecraft.item.ItemStack;
 import net.minecraftforge.common.config.Configuration;
 import net.minecraftforge.fml.common.Mod;
@@ -18,6 +19,7 @@ import org.apache.logging.log4j.Logger;
 import breakabletables.QuickRegister;
 import breakabletables.blocks.BlockWorkbenchBreakable;
 import breakabletables.blocks.BlockWorkbenchBreakable.TableQuality;
+import breakabletables.blocks.TileEntityWorkbenchBreakable;
 import breakabletables.core.proxies.CommonProxy;
 import breakabletables.handlers.ConfigHandler;
 import breakabletables.items.blocks.ItemBlockWorkbench;
@@ -26,7 +28,7 @@ import breakabletables.items.blocks.ItemBlockWorkbench;
 public class BreakableTables
 {
     public static final String MODID = "breakabletables";
-    public static final String VERSION = "1.0.2";
+    public static final String VERSION = "1.0.4";
     public static final String NAME = "Breakable Tables";
     public static final String PROXY = MODID + ".core.proxies";
     public static final String CHANNEL = "BT_CHAN";
@@ -57,9 +59,15 @@ public class BreakableTables
 	@EventHandler
     public void init(FMLInitializationEvent event)
     {
+		GameRegistry.registerTileEntity(TileEntityWorkbenchBreakable.class, "breakabletables_workbench");
 		QuickRegister.registerBlock(basicWorkbench, new ItemBlockWorkbench(basicWorkbench), "workbench_basic");
 		QuickRegister.registerBlock(goodWorkbench, new ItemBlockWorkbench(goodWorkbench), "workbench_good");
 		QuickRegister.registerBlock(greatWorkbench, new ItemBlockWorkbench(greatWorkbench), "workbench_great");
+		
+		Blocks.FIRE.setFireInfo(basicWorkbench, 5, 20);
+		Blocks.FIRE.setFireInfo(goodWorkbench, 5, 20);
+		Blocks.FIRE.setFireInfo(greatWorkbench, 5, 20);
+		Blocks.FIRE.setFireInfo(Blocks.CRAFTING_TABLE, 5, 20);
 		
 		GameRegistry.addRecipe(new ShapedOreRecipe(new ItemStack(basicWorkbench), new String[]{"PP", "PP"}, 'P', "plankWood"));
 		GameRegistry.addRecipe(new ShapedOreRecipe(new ItemStack(goodWorkbench), new String[]{"PPP", "PTP", "PPP"}, 'P', "plankWood", 'T', new ItemStack(basicWorkbench)));

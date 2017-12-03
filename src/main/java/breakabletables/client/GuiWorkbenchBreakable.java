@@ -7,20 +7,21 @@ import net.minecraft.entity.player.InventoryPlayer;
 import net.minecraft.util.ResourceLocation;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.world.World;
+import breakabletables.blocks.TileEntityWorkbenchBreakable;
 import breakabletables.inventory.ContainerWorkbenchBreakable;
 
 public class GuiWorkbenchBreakable extends GuiContainer
 {
     private static final ResourceLocation CRAFTING_TABLE_GUI_TEXTURES = new ResourceLocation("textures/gui/container/crafting_table.png");
     
-    public GuiWorkbenchBreakable(InventoryPlayer playerInv, World worldIn)
+    public GuiWorkbenchBreakable(InventoryPlayer playerInv, TileEntityWorkbenchBreakable tile, World worldIn)
     {
-        this(playerInv, worldIn, BlockPos.ORIGIN);
+        this(playerInv, tile, worldIn, BlockPos.ORIGIN);
     }
     
-    public GuiWorkbenchBreakable(InventoryPlayer playerInv, World worldIn, BlockPos blockPosition)
+    public GuiWorkbenchBreakable(InventoryPlayer playerInv, TileEntityWorkbenchBreakable tile, World worldIn, BlockPos blockPosition)
     {
-        super(new ContainerWorkbenchBreakable(playerInv, worldIn, blockPosition));
+        super(new ContainerWorkbenchBreakable(playerInv, tile, worldIn, blockPosition));
     }
     
     /**
